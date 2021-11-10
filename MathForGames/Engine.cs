@@ -57,39 +57,30 @@ namespace MathForGames
             _stopwatch.Start();
 
             //Create a window using Raylib
-            Raylib.InitWindow(800, 450, "Math For Games");
+            Raylib.InitWindow(1600, 900, "ShooterTurtle");
             Raylib.SetTargetFPS(60);
 
             Scene scene = new Scene();
-            
-            Player player = new Player(30, 50, 100, "Player", "Images/player.png");
+
+            Player player = new Player(400, 225, 100, scene, "Turtle", "Images/Turtle.png");
             player.SetScale(50, 50);
-            player.SetTranslation(500, 300);             
-            CircleCollider playerCircleCollider = new CircleCollider(15, player);
-            AABBCollider playerBoxCollider = new AABBCollider(40, 40, player);
-            player.Collider = playerCircleCollider;
-        
-            // Solar system
-            Planet sun = new Planet(30, 50, 1, "Sun", "Images/bullet.png");
-            sun.SetScale(100, 100);
-            sun.SetTranslation(400, 225);
-            CircleCollider sunCircleCollider = new CircleCollider(15, sun);
-            sun.Collider = sunCircleCollider;
+            AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
+            player.Collider = playerBoxCollider;
 
-            Planet planet1 = new Planet(20, 30, 1, "Planet1", "Images/bullet.png");
-            planet1.SetScale(1, 1);
-            planet1.SetTranslation(1, 1);
+            Actor baby = new Actor(1, 1, "Baby", "Images/Baby.png");
+            baby.SetScale(0.7f, 0.7f);
+            baby.SetTranslation(-1, 0);
 
-            Planet planet2 = new Planet(20, 30, 1, "Planet2", "Images/bullet.png");
-            planet2.SetScale(0.5f, 0.5f);
-            planet2.SetTranslation(1, 0);
+            Enemy enemy1 = new Enemy(50, 50, 25, player, "Shark1", "Images/Shark.png");
+            enemy1.SetScale(105, 50);
+            AABBCollider enemy1BoxCollider = new AABBCollider(105, 50, enemy1);
+            enemy1.Collider = enemy1BoxCollider;
 
-            sun.AddChild(planet1);
-            planet1.AddChild(planet2);
+            player.AddChild(baby);
 
-            scene.AddActor(sun);
-            scene.AddActor(planet1);
-            scene.AddActor(planet2);
+            scene.AddActor(player);
+            scene.AddActor(baby);
+            scene.AddActor(enemy1);
 
             _currentSceneIndex = AddScene(scene);
 
@@ -99,7 +90,7 @@ namespace MathForGames
         }
         
         /// <summary>
-        /// Called everytime the gane loops
+        /// Called everytime the game loops
         /// </summary>
         private void Update(float deltaTime)
         {
@@ -116,7 +107,7 @@ namespace MathForGames
         {
             Raylib.BeginDrawing();
 
-            Raylib.ClearBackground(Color.BLACK);
+            Raylib.ClearBackground(Color.BLUE);
 
             //Adds all actor icons to buffer
             _scenes[_currentSceneIndex].Draw();

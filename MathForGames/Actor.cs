@@ -29,16 +29,6 @@ namespace MathForGames
             get { return _started; }
         }
 
-        public float ScaleX
-        {
-            get {return new Vector2(_scale.M00, _scale.M10).Magnitude; }
-        }
-
-        public float ScaleY
-        {
-            get { return new Vector2(_scale.M00, _scale.M10).Magnitude; }
-        }
-
         public Vector2 LocalPosition
         {
             get { return new Vector2(_translation.M02, _translation.M12); }
@@ -60,12 +50,14 @@ namespace MathForGames
                 //If the actor has a parent...
                 if (Parent != null)
                 {
-                    Vector2 offset = value - Parent.LocalPosition;
-
-                    SetTranslation(offset.X / ScaleX, offset.Y / ScaleY);
+                    //...convert the world coordinates into local coordinates and translate the actor
+                    float xOffset = (value.X - Parent.WorldPosition.X) / new Vector2(_globalTransform.M00, _globalTransform.M10).Magnitude;
+                    float yOffset = (value.Y - Parent.WorldPosition.Y) / new Vector2(_globalTransform.M10, _globalTransform.M11).Magnitude;
+                    SetTranslation(xOffset, yOffset);
                 }
                 else
                 {
+                    //...set local position to be the given value
                     LocalPosition = value;
                 }                
             }

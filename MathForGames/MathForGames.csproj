@@ -7,18 +7,28 @@
 
   <ItemGroup>
     <None Remove="enemy.png" />
-    <None Remove="Images\bullet.png" />
+    <None Remove="Images\Baby.png" />
+    <None Remove="Images\egg.png" />
+    <None Remove="Images\Shark.png" />
+    <None Remove="Images\strawberry.png" />
+    <None Remove="Images\Turtle.png" />
     <None Remove="player.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\bullet.png">
+    <Content Include="Images\Baby.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\enemy.png">
+    <Content Include="Images\egg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\player.png">
+    <Content Include="Images\Shark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\strawberry.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Turtle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
