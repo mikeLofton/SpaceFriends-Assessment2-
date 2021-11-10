@@ -11,7 +11,7 @@ namespace MathForGames
         private float _speed;
         private Vector2 _velocity;
         private Scene _scene;
-        private float _cooldownTime = 0.5f;
+        private float _cooldownTime = 1;
         private float _sinceLastShot = 0;
 
         public float Speed

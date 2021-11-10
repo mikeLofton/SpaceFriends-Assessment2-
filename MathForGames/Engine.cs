@@ -67,19 +67,21 @@ namespace MathForGames
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerBoxCollider;
 
-            Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
-            baby.SetScale(0.7f, 0.7f);
-            baby.SetTranslation(-1, 0);
+            //Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            //baby.SetScale(0.7f, 0.7f);
+            //baby.SetTranslation(-1, 0);
+            //AABBCollider babyBoxCollider = new AABBCollider(0.7f, 0.7f, baby);
+            //baby.Collider = babyBoxCollider;
 
             Enemy enemy1 = new Enemy(50, 50, 25, player, "Shark1", "Images/Shark.png");
             enemy1.SetScale(105, 50);
             AABBCollider enemy1BoxCollider = new AABBCollider(105, 50, enemy1);
             enemy1.Collider = enemy1BoxCollider;
 
-            player.AddChild(baby);
+            //player.AddChild(baby);
 
             scene.AddActor(player);
-            scene.AddActor(baby);
+            //scene.AddActor(baby);
             scene.AddActor(enemy1);
 
             _currentSceneIndex = AddScene(scene);

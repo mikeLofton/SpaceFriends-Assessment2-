@@ -45,7 +45,7 @@ namespace MathForGames
 
             distance = Vector2.Distance(_target.LocalPosition, LocalPosition);
 
-            if (GetTargetInSight() && distance < 100)
+            if (GetTargetInSight() && distance < 200)
                 LocalPosition += Velocity * deltaTime;
             
             base.Update(deltaTime);

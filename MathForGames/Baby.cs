@@ -8,7 +8,7 @@ namespace MathForGames
     class Baby : Actor
     {
         private Scene _scene;
-        private float _cooldownTime = 0.5f;
+        private float _cooldownTime = 1;
         private float _sinceLastShot = 0;
 
         public Baby(float x, float y, Scene currentScene, string name = "Actor", string path = "") :
@@ -43,6 +43,12 @@ namespace MathForGames
             }
 
             base.Update(deltaTime);
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            Collider.Draw();
         }
     }
 }
