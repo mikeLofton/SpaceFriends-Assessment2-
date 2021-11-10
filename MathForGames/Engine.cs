@@ -67,7 +67,7 @@ namespace MathForGames
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerBoxCollider;
 
-            Actor baby = new Actor(1, 1, "Baby", "Images/Baby.png");
+            Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
             baby.SetScale(0.7f, 0.7f);
             baby.SetTranslation(-1, 0);
 

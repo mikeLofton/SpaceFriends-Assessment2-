@@ -12,6 +12,7 @@
     <None Remove="Images\Shark.png" />
     <None Remove="Images\strawberry.png" />
     <None Remove="Images\Turtle.png" />
+    <None Remove="Images\watermelon.png" />
     <None Remove="player.png" />
   </ItemGroup>
 
@@ -29,6 +30,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Turtle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\watermelon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
