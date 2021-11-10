@@ -10,8 +10,8 @@ namespace MathForGames
     {
         private float _speed;
         private Vector2 _velocity;
-        private Actor _target;
-        private float _maxViewAngle;
+        private float _enemyType;
+        private Actor _target;       
 
         public float Speed
         {
@@ -25,10 +25,11 @@ namespace MathForGames
             set { _velocity = value; }
         }
 
-        public Enemy(float x, float y, float speed, Actor target, string name = "Actor", string path = "") :
+        public Enemy(float x, float y, float speed, float type, Actor target, string name = "Actor", string path = "") :
             base(x, y, name, path)
         {
             _speed = speed;
+            _enemyType = type;
             _target = target;   
         }
 
@@ -45,8 +46,14 @@ namespace MathForGames
 
             distance = Vector2.Distance(_target.LocalPosition, LocalPosition);
 
-            if (GetTargetInSight() && distance < 200)
+            if (GetTargetInSight() && distance < 500)
                 LocalPosition += Velocity * deltaTime;
+
+            if (_enemyType == 1)
+                LookAt(_target.WorldPosition);
+
+            if (_enemyType == 2)
+                Rotate(0.5f);
             
             base.Update(deltaTime);
         }
@@ -55,7 +62,7 @@ namespace MathForGames
         {
             Vector2 directionOfTarget = (_target.LocalPosition - LocalPosition).Normalized;
 
-            return Math.Acos(Vector2.DotProduct(directionOfTarget, Forward)) * (180 / Math.PI) < 30;
+            return Math.Acos(Vector2.DotProduct(directionOfTarget, Forward)) * (180 / Math.PI) < 360;
         }
 
         public override void OnCollision(Actor actor)

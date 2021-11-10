@@ -12,8 +12,6 @@ namespace MathForGames
         private int _xDirection;
         private int _yDirection;
         private Scene _scene;
-        private float _existanceTime = 3;
-        private float _sinceExisting = 0;
 
         public float Speed
         {
@@ -38,19 +36,11 @@ namespace MathForGames
 
         public override void Update(float deltaTime)
         {
-            _sinceExisting += deltaTime;
-
             Vector2 moveDirection = new Vector2(_xDirection, _yDirection);
 
             Velocity = moveDirection.Normalized * Speed * deltaTime;
 
             LocalPosition += Velocity;
-
-            if (_sinceExisting > _existanceTime)
-            {
-                _scene.RemoveActor(this);
-                _sinceExisting = 0;
-            }
 
             base.Update(deltaTime);
         }

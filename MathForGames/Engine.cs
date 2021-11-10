@@ -67,22 +67,28 @@ namespace MathForGames
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerBoxCollider;
 
-            //Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
-            //baby.SetScale(0.7f, 0.7f);
-            //baby.SetTranslation(-1, 0);
-            //AABBCollider babyBoxCollider = new AABBCollider(0.7f, 0.7f, baby);
-            //baby.Collider = babyBoxCollider;
+            Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby.SetScale(0.7f, 0.7f);
+            baby.SetTranslation(-1, 0);
+            AABBCollider babyBoxCollider = new AABBCollider(0.7f, 0.7f, baby);
+            baby.Collider = babyBoxCollider;
 
-            Enemy enemy1 = new Enemy(50, 50, 25, player, "Shark1", "Images/Shark.png");
+            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, "Shark1", "Images/Shark.png");
             enemy1.SetScale(105, 50);
-            AABBCollider enemy1BoxCollider = new AABBCollider(105, 50, enemy1);
-            enemy1.Collider = enemy1BoxCollider;
+            CircleCollider enemy1CircleCollider = new CircleCollider(45, enemy1);
+            enemy1.Collider = enemy1CircleCollider;
 
-            //player.AddChild(baby);
+            Enemy enemy2 = new Enemy(1000, 800, 50, 2, player, "Clam1", "Images/clam.png");
+            enemy2.SetScale(50, 50);
+            CircleCollider enemy2CircleCollider = new CircleCollider(45, enemy2);
+            enemy2.Collider = enemy2CircleCollider;
+
+            player.AddChild(baby);
 
             scene.AddActor(player);
-            //scene.AddActor(baby);
+            scene.AddActor(baby);
             scene.AddActor(enemy1);
+            scene.AddActor(enemy2);
 
             _currentSceneIndex = AddScene(scene);
 

@@ -45,6 +45,12 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        public override void OnCollision(Actor actor)
+        {
+            if (actor is Enemy)
+                Engine.CloseApplication();
+        }
+
         public override void Draw()
         {
             base.Draw();

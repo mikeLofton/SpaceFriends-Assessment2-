@@ -76,6 +76,10 @@ namespace MathForGames
 
             LocalPosition += Velocity;
 
+            float resultX = Math.Clamp(LocalPosition.X, 0, 1600);
+            float resultY = Math.Clamp(LocalPosition.Y, 0, 900);
+            LocalPosition = new Vector2(resultX, resultY);
+
             base.Update(deltaTime);
         }
 
