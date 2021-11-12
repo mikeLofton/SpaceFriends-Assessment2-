@@ -70,7 +70,7 @@ namespace MathForGames
             Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
             baby.SetScale(0.7f, 0.7f);
             baby.SetTranslation(-1, 0);
-            AABBCollider babyBoxCollider = new AABBCollider(0.7f, 0.7f, baby);
+            AABBCollider babyBoxCollider = new AABBCollider(20, 20, baby);
             baby.Collider = babyBoxCollider;
 
             Enemy enemy1 = new Enemy(50, 50, 50, 1, player, "Shark1", "Images/Shark.png");

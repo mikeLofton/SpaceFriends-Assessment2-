@@ -42,6 +42,9 @@ namespace MathForGames
                 //Check for collision
                 for (int j = 0; j < _actors.Length; j++)
                 {
+                    if (i >= _actors.Length)
+                        i--;
+
                     if (_actors[i].CheckForCollision(_actors[j]) && j != i)
                         _actors[i].OnCollision(_actors[j]);                  
                 }

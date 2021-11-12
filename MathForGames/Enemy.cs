@@ -11,7 +11,10 @@ namespace MathForGames
         private float _speed;
         private Vector2 _velocity;
         private float _enemyType;
-        private Actor _target;       
+        private Actor _target;
+        private float _cooldownTime = 25;
+        private float _sinceLastShark = 0;
+        private float _sinceLastClam = 0;       
 
         public float Speed
         {
@@ -30,7 +33,7 @@ namespace MathForGames
         {
             _speed = speed;
             _enemyType = type;
-            _target = target;   
+            _target = target;           
         }
 
         public override void Update(float deltaTime)

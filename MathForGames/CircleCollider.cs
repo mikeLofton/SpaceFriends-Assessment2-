@@ -60,7 +60,7 @@ namespace MathForGames
         public override void Draw()
         {
             base.Draw();
-            Raylib.DrawCircleLines((int)Owner.LocalPosition.X, (int)Owner.LocalPosition.Y, CollisionRadius, Color.WHITE);
+            Raylib.DrawCircleLines((int)Owner.WorldPosition.X, (int)Owner.WorldPosition.Y, CollisionRadius, Color.WHITE);
         }
     }
 }

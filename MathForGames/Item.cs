@@ -6,8 +6,8 @@ using Raylib_cs;
 
 namespace MathForGames
 {
-    class Item : Actor
-    {
+    //class Item : Actor
+    //{
 
-    }
+    //}
 }
