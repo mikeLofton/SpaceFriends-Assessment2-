@@ -13,10 +13,5 @@ namespace MathForGames
         {
 
         }
-
-        public override void Start()
-        {
-            base.Start();
-        }
     }
 }

@@ -12,9 +12,10 @@ namespace MathForGames
         private Vector2 _velocity;
         private float _enemyType;
         private Actor _target;
-        private float _cooldownTime = 25;
-        private float _sinceLastShark = 0;
-        private float _sinceLastClam = 0;       
+        private Scene _scene;
+        //private float _cooldownTime = 25;
+        //private float _sinceLastShark = 0;
+        //private float _sinceLastClam = 0;       
 
         public float Speed
         {
@@ -28,12 +29,13 @@ namespace MathForGames
             set { _velocity = value; }
         }
 
-        public Enemy(float x, float y, float speed, float type, Actor target, string name = "Actor", string path = "") :
+        public Enemy(float x, float y, float speed, float type, Actor target, Scene currentScene, string name = "Actor", string path = "") :
             base(x, y, name, path)
         {
             _speed = speed;
             _enemyType = type;
-            _target = target;           
+            _target = target;
+            _scene = currentScene;
         }
 
         public override void Start()
@@ -75,7 +77,8 @@ namespace MathForGames
 
         public override void OnCollision(Actor actor)
         {
-            Console.WriteLine("Collision occurred");
+            if (actor is Baby)
+                _scene.RemoveActor(this);
         }
 
         public override void Draw()

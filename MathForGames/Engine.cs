@@ -187,12 +187,12 @@ namespace MathForGames
             AABBCollider baby8BoxCollider = new AABBCollider(30, 30, baby8);
             baby8.Collider = baby8BoxCollider;
 
-            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, "Shark1", "Images/Shark.png");
+            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, scene, "Shark1", "Images/Shark.png");
             enemy1.SetScale(105, 50);
             CircleCollider enemy1CircleCollider = new CircleCollider(45, enemy1);
             enemy1.Collider = enemy1CircleCollider;
 
-            Enemy enemy2 = new Enemy(1500, 850, 50, 2, player, "Clam1", "Images/clam.png");
+            Enemy enemy2 = new Enemy(1500, 850, 50, 2, player, scene, "Clam1", "Images/clam.png");
             enemy2.SetScale(50, 50);
             CircleCollider enemy2CircleCollider = new CircleCollider(45, enemy2);
             enemy2.Collider = enemy2CircleCollider;
