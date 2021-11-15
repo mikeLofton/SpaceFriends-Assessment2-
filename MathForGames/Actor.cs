@@ -222,7 +222,7 @@ namespace MathForGames
                 _sprite.Draw(_globalTransform);
         }
 
-        public void End()
+        public virtual void End()
         {
 
         }

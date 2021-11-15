@@ -60,41 +60,7 @@ namespace MathForGames
             Raylib.InitWindow(1600, 900, "ShooterTurtle");
             Raylib.SetTargetFPS(60);
 
-            Scene scene = new Scene();
-
-            Player player = new Player(400, 225, 100, scene, "Turtle", "Images/Turtle.png");
-            player.SetScale(50, 50);
-            AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
-            player.Collider = playerBoxCollider;
-
-            Baby baby = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
-            baby.SetScale(0.7f, 0.7f);
-            baby.SetTranslation(-1, 0);
-            AABBCollider babyBoxCollider = new AABBCollider(20, 20, baby);
-            baby.Collider = babyBoxCollider;
-
-            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, "Shark1", "Images/Shark.png");
-            enemy1.SetScale(105, 50);
-            CircleCollider enemy1CircleCollider = new CircleCollider(45, enemy1);
-            enemy1.Collider = enemy1CircleCollider;
-
-            Enemy enemy2 = new Enemy(1000, 800, 50, 2, player, "Clam1", "Images/clam.png");
-            enemy2.SetScale(50, 50);
-            CircleCollider enemy2CircleCollider = new CircleCollider(45, enemy2);
-            enemy2.Collider = enemy2CircleCollider;
-
-            player.AddChild(baby);
-
-            scene.AddActor(player);
-            scene.AddActor(baby);
-            scene.AddActor(enemy1);
-            scene.AddActor(enemy2);
-
-            _currentSceneIndex = AddScene(scene);
-
-            _scenes[_currentSceneIndex].Start();
-
-            Console.CursorVisible = false;
+            InitializeSceneObjects();                              
         }
         
         /// <summary>
@@ -102,10 +68,7 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime);
-            
-            while (Console.KeyAvailable)
-                Console.ReadKey(true);
+            _scenes[_currentSceneIndex].Update(deltaTime);          
         }
 
         /// <summary>
@@ -160,26 +123,106 @@ namespace MathForGames
         }
 
         /// <summary>
-        /// Gets the next key in the input stream
-        /// </summary>
-        /// <returns>The key that was pressed</returns>
-        public static ConsoleKey GetNextKey()
-        {
-            //If there is no key being pressed...
-            if (!Console.KeyAvailable)
-                //...return
-                return 0;
-
-            //Return the current key being pressed
-            return Console.ReadKey(true).Key;
-        }
-
-        /// <summary>
         /// Ends the application
         /// </summary>
         public static void CloseApplication()
         {
             _applicationShouldClose = true;
+        }
+
+        private void InitializeSceneObjects()
+        {
+            Scene scene = new Scene();
+
+            Player player = new Player(800, 450, 100, scene, "Turtle", "Images/Turtle.png");
+            player.SetScale(50, 50);
+            AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
+            player.Collider = playerBoxCollider;
+
+            Baby baby1 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby1.SetScale(0.7f, 0.7f);
+            baby1.SetTranslation(-1, 0);
+            AABBCollider baby1BoxCollider = new AABBCollider(30, 30, baby1);
+            baby1.Collider = baby1BoxCollider;
+
+            Baby baby2 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby2.SetScale(0.7f, 0.7f);
+            baby2.SetTranslation(-1, 1);
+            AABBCollider baby2BoxCollider = new AABBCollider(30, 30, baby2);
+            baby2.Collider = baby2BoxCollider;
+
+            Baby baby3 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby3.SetScale(0.7f, 0.7f);
+            baby3.SetTranslation(0, 1);
+            AABBCollider baby3BoxCollider = new AABBCollider(30, 30, baby3);
+            baby3.Collider = baby3BoxCollider;
+
+            Baby baby4 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby4.SetScale(0.7f, 0.7f);
+            baby4.SetTranslation(1, 1);
+            AABBCollider baby4BoxCollider = new AABBCollider(30, 30, baby4);
+            baby4.Collider = baby4BoxCollider;
+
+            Baby baby5 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby5.SetScale(0.7f, 0.7f);
+            baby5.SetTranslation(1, 0);
+            AABBCollider baby5BoxCollider = new AABBCollider(30, 30, baby5);
+            baby5.Collider = baby5BoxCollider;
+
+            Baby baby6 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby6.SetScale(0.7f, 0.7f);
+            baby6.SetTranslation(1, -1);
+            AABBCollider baby6BoxCollider = new AABBCollider(30, 30, baby6);
+            baby6.Collider = baby6BoxCollider;
+
+            Baby baby7 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby7.SetScale(0.7f, 0.7f);
+            baby7.SetTranslation(0, -1);
+            AABBCollider baby7BoxCollider = new AABBCollider(30, 30, baby7);
+            baby7.Collider = baby7BoxCollider;
+
+            Baby baby8 = new Baby(1, 1, scene, "Baby", "Images/Baby.png");
+            baby8.SetScale(0.7f, 0.7f);
+            baby8.SetTranslation(-1, -1);
+            AABBCollider baby8BoxCollider = new AABBCollider(30, 30, baby8);
+            baby8.Collider = baby8BoxCollider;
+
+            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, "Shark1", "Images/Shark.png");
+            enemy1.SetScale(105, 50);
+            CircleCollider enemy1CircleCollider = new CircleCollider(45, enemy1);
+            enemy1.Collider = enemy1CircleCollider;
+
+            Enemy enemy2 = new Enemy(1500, 850, 50, 2, player, "Clam1", "Images/clam.png");
+            enemy2.SetScale(50, 50);
+            CircleCollider enemy2CircleCollider = new CircleCollider(45, enemy2);
+            enemy2.Collider = enemy2CircleCollider;
+
+            player.AddChild(baby1);
+            player.AddChild(baby2);
+            player.AddChild(baby3);
+            player.AddChild(baby4);
+            player.AddChild(baby5);
+            player.AddChild(baby6);
+            player.AddChild(baby7);
+            player.AddChild(baby8);
+
+            scene.AddActor(player);
+
+            scene.AddActor(baby1);
+            scene.AddActor(baby2);
+            scene.AddActor(baby3);
+            scene.AddActor(baby4);
+            scene.AddActor(baby5);
+            scene.AddActor(baby6);
+            scene.AddActor(baby7);
+            scene.AddActor(baby8);
+
+            scene.AddActor(enemy1);
+            scene.AddActor(enemy2);
+
+            _currentSceneIndex = AddScene(scene);
+
+            _scenes[_currentSceneIndex].Start();
         }
     }
 }

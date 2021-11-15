@@ -9,8 +9,6 @@
     <None Remove="enemy.png" />
     <None Remove="Images\Baby.png" />
     <None Remove="Images\clam.png" />
-    <None Remove="Images\egg.png" />
-    <None Remove="Images\Grow.png" />
     <None Remove="Images\Shark.png" />
     <None Remove="Images\strawberry.png" />
     <None Remove="Images\Turtle.png" />
@@ -23,12 +21,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\clam.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\egg.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Grow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Shark.png">

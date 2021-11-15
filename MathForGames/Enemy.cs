@@ -36,6 +36,11 @@ namespace MathForGames
             _target = target;           
         }
 
+        public override void Start()
+        {
+            base.Start();
+        }
+
         public override void Update(float deltaTime)
         {
             Vector2 direction = new Vector2();
@@ -77,6 +82,11 @@ namespace MathForGames
         {
             base.Draw();
             Collider.Draw();
+        }
+
+        public override void End()
+        {
+            base.End();
         }
     }
 }
