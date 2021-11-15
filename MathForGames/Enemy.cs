@@ -78,7 +78,9 @@ namespace MathForGames
         public override void OnCollision(Actor actor)
         {
             if (actor is Baby)
-                _scene.RemoveActor(this);
+                _scene.RemoveActor(actor);
+
+            Console.WriteLine("Collision Occored");
         }
 
         public override void Draw()
