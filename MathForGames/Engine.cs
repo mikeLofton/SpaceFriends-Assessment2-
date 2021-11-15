@@ -68,7 +68,7 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime);          
+            _scenes[_currentSceneIndex].Update(deltaTime);   
         }
 
         /// <summary>
@@ -187,16 +187,47 @@ namespace MathForGames
             AABBCollider baby8BoxCollider = new AABBCollider(30, 30, baby8);
             baby8.Collider = baby8BoxCollider;
 
-            Enemy enemy1 = new Enemy(50, 50, 50, 1, player, scene, "Shark1", "Images/Shark.png");
+            Enemy enemy1 = new Enemy(60, 60, 70, 1, player, scene, "Shark1", "Images/Shark.png");
             enemy1.SetScale(105, 50);
             CircleCollider enemy1CircleCollider = new CircleCollider(45, enemy1);
             enemy1.Collider = enemy1CircleCollider;
+
+            Enemy enemy3 = new Enemy(300, 50, 70, 1, player, scene, "Shark1", "Images/Shark.png");
+            enemy3.SetScale(105, 50);
+            CircleCollider enemy3CircleCollider = new CircleCollider(45, enemy3);
+            enemy3.Collider = enemy3CircleCollider;
+
+            Enemy enemy5 = new Enemy(50, 250, 70, 1, player, scene, "Shark1", "Images/Shark.png");
+            enemy5.SetScale(105, 50);
+            CircleCollider enemy5CircleCollider = new CircleCollider(45, enemy5);
+            enemy5.Collider = enemy5CircleCollider;
+
+            Enemy enemy7 = new Enemy(50, 600, 70, 1, player, scene, "Shark1", "Images/Shark.png");
+            enemy7.SetScale(105, 50);
+            CircleCollider enemy7CircleCollider = new CircleCollider(45, enemy7);
+            enemy7.Collider = enemy7CircleCollider;
 
             Enemy enemy2 = new Enemy(1500, 850, 50, 2, player, scene, "Clam1", "Images/clam.png");
             enemy2.SetScale(50, 50);
             CircleCollider enemy2CircleCollider = new CircleCollider(45, enemy2);
             enemy2.Collider = enemy2CircleCollider;
 
+            Enemy enemy4 = new Enemy(1500, 550, 50, 2, player, scene, "Clam1", "Images/clam.png");
+            enemy4.SetScale(50, 50);
+            CircleCollider enemy4CircleCollider = new CircleCollider(45, enemy4);
+            enemy4.Collider = enemy4CircleCollider;
+
+            Enemy enemy6 = new Enemy(900, 850, 50, 2, player, scene, "Clam1", "Images/clam.png");
+            enemy6.SetScale(50, 50);
+            CircleCollider enemy6CircleCollider = new CircleCollider(45, enemy6);
+            enemy6.Collider = enemy6CircleCollider;
+
+            Enemy enemy8 = new Enemy(1500, 250, 50, 2, player, scene, "Clam1", "Images/clam.png");
+            enemy8.SetScale(50, 50);
+            CircleCollider enemy8CircleCollider = new CircleCollider(45, enemy8);
+            enemy8.Collider = enemy8CircleCollider;
+            
+            //Add all children to player
             player.AddChild(baby1);
             player.AddChild(baby2);
             player.AddChild(baby3);
@@ -206,8 +237,10 @@ namespace MathForGames
             player.AddChild(baby7);
             player.AddChild(baby8);
 
+            //Add player to scene
             scene.AddActor(player);
 
+            //Add Babies to scene
             scene.AddActor(baby1);
             scene.AddActor(baby2);
             scene.AddActor(baby3);
@@ -217,8 +250,17 @@ namespace MathForGames
             scene.AddActor(baby7);
             scene.AddActor(baby8);
 
+            //Add sharks to scene
             scene.AddActor(enemy1);
+            scene.AddActor(enemy3);
+            scene.AddActor(enemy5);
+            scene.AddActor(enemy7);
+
+            //Add clams to scene
             scene.AddActor(enemy2);
+            scene.AddActor(enemy4);
+            scene.AddActor(enemy6);
+            scene.AddActor(enemy8);
 
             _currentSceneIndex = AddScene(scene);
 

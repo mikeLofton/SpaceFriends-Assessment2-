@@ -13,9 +13,6 @@ namespace MathForGames
         private float _enemyType;
         private Actor _target;
         private Scene _scene;
-        //private float _cooldownTime = 25;
-        //private float _sinceLastShark = 0;
-        //private float _sinceLastClam = 0;       
 
         public float Speed
         {
@@ -38,25 +35,20 @@ namespace MathForGames
             _scene = currentScene;
         }
 
-        public override void Start()
-        {
-            base.Start();
-        }
-
         public override void Update(float deltaTime)
         {
             Vector2 direction = new Vector2();
             float distance;
 
-            direction = _target.LocalPosition - LocalPosition;
+            direction = _target.WorldPosition - WorldPosition;
 
             direction.Normalize();
 
             Velocity = direction * Speed;
 
-            distance = Vector2.Distance(_target.LocalPosition, LocalPosition);
+            distance = Vector2.Distance(_target.WorldPosition, WorldPosition);
 
-            if (GetTargetInSight() && distance < 500)
+            if ( distance < 800)
                 LocalPosition += Velocity * deltaTime;
 
             if (_enemyType == 1)
@@ -70,7 +62,7 @@ namespace MathForGames
 
         public bool GetTargetInSight()
         {
-            Vector2 directionOfTarget = (_target.LocalPosition - LocalPosition).Normalized;
+            Vector2 directionOfTarget = (_target.WorldPosition - WorldPosition).Normalized;
 
             return Math.Acos(Vector2.DotProduct(directionOfTarget, Forward)) * (180 / Math.PI) < 360;
         }

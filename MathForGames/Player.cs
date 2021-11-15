@@ -14,7 +14,7 @@ namespace MathForGames
         //How long the player has to wait (in seconds) before firing a bullet again
         private float _cooldownTime = 1;
         //How much time has passed since since the last time the player fired a bullet
-        private float _sinceLastShot = 0;
+        private float _sinceLastShot = 0;      
 
         /// <summary>
         /// The player's speed
