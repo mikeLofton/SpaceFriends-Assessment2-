@@ -60,13 +60,6 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
-        public bool GetTargetInSight()
-        {
-            Vector2 directionOfTarget = (_target.WorldPosition - WorldPosition).Normalized;
-
-            return Math.Acos(Vector2.DotProduct(directionOfTarget, Forward)) * (180 / Math.PI) < 360;
-        }
-
         public override void OnCollision(Actor actor)
         {
             if (actor is Baby)

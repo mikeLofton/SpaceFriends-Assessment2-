@@ -226,7 +226,9 @@ namespace MathForGames
             enemy8.SetScale(50, 50);
             CircleCollider enemy8CircleCollider = new CircleCollider(45, enemy8);
             enemy8.Collider = enemy8CircleCollider;
-            
+
+            UIText winText = new UIText(800, 450, "WinText", Color.WHITE, 300, 300, 40, "YOU WIN!");
+
             //Add all children to player
             player.AddChild(baby1);
             player.AddChild(baby2);
@@ -261,6 +263,8 @@ namespace MathForGames
             scene.AddActor(enemy4);
             scene.AddActor(enemy6);
             scene.AddActor(enemy8);
+
+            
 
             _currentSceneIndex = AddScene(scene);
 
