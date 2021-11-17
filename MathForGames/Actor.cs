@@ -185,6 +185,11 @@ namespace MathForGames
                 GlobalTransform = LocalTransform;
         }
 
+        /// <summary>
+        /// Add actors to the children array
+        /// Childs an actor to a parent
+        /// </summary>
+        /// <param name="child"></param>
         public void AddChild(Actor child)
         {
             //Create a temp array larger than the original
@@ -206,6 +211,12 @@ namespace MathForGames
             _children = tempArray;          
         }
 
+        /// <summary>
+        /// Removes actor from the children array
+        /// Removes child from parent actor
+        /// </summary>
+        /// <param name="child"></param>
+        /// <returns></returns>
         public bool RemoveChild(Actor child)
         {
             //Create a variable to store if the removal was successful
@@ -245,28 +256,45 @@ namespace MathForGames
             return childRemoved;
         }
 
+        /// <summary>
+        /// Start for each actor
+        /// </summary>
         public virtual void Start()
         {
             _started = true;
         }
 
+        /// <summary>
+        /// Called evertime the game loops
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public virtual void Update(float deltaTime)
         {           
             UpdateTransforms();
             Console.WriteLine(_name + ": " + WorldPosition.X + ", " + WorldPosition.Y);
         }
 
+        /// <summary>
+        /// Draws the actor sprites
+        /// </summary>
         public virtual void Draw()
         {
             if (_sprite != null)
                 _sprite.Draw(_globalTransform);
         }
 
+        /// <summary>
+        /// End for each actor
+        /// </summary>
         public virtual void End()
         {
 
         }
 
+        /// <summary>
+        /// Collision between this actor and another
+        /// </summary>
+        /// <param name="actor">The other actor</param>
         public virtual void OnCollision(Actor actor)
         {
 

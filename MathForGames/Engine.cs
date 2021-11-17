@@ -130,6 +130,9 @@ namespace MathForGames
             _applicationShouldClose = true;
         }
 
+        /// <summary>
+        /// Initializes the scenes and actors when the game starts
+        /// </summary>
         private void InitializeSceneObjects()
         {
             Scene scene = new Scene();

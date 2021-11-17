@@ -12,6 +12,9 @@ namespace MathForGames
         private Actor[] _actors;
         private Actor[] _UIElements;
 
+        /// <summary>
+        /// Scene Constructor
+        /// </summary>
         public Scene()
         {
             _actors = new Actor[0];
@@ -51,6 +54,11 @@ namespace MathForGames
             }
         }
 
+        /// <summary>
+        /// Calls update for every UI element in the scene. 
+        /// Calls start for element if it hasn't been called.
+        /// </summary>
+        /// <param name="deltaTime">The amount of time between each frame</param>
         public virtual void UpdateUI(float deltaTime)
         {
             for (int i = 0; i < _UIElements.Length; i++)
@@ -80,6 +88,9 @@ namespace MathForGames
             }
         }
 
+        /// <summary>
+        /// Calls draw for every UI element in the array
+        /// </summary>
         public virtual void DrawUI()
         {
             for (int i = 0; i < _UIElements.Length; i++)
@@ -125,7 +136,7 @@ namespace MathForGames
         /// Removes the actor from the scene
         /// </summary>
         /// <param name="actor">The actor to remove</param>
-        /// <returns>False if the actor was not in the scene array</returns>
+        /// <returns>False if the actor was not in the actors array</returns>
         public virtual bool RemoveActor(Actor actor)
         {
             //Create a variable to store if the removal was successful
@@ -164,9 +175,9 @@ namespace MathForGames
         }
 
         /// <summary>
-        /// 
+        /// Add UI element to the scene
         /// </summary>
-        /// <param name="UI"></param>
+        /// <param name="UI">The element to add</param>
         public virtual void AddUIElement(Actor UI)
         {
             //Create a temp array larger than the original
@@ -185,6 +196,11 @@ namespace MathForGames
             _UIElements = tempArray;
         }
 
+        /// <summary>
+        /// Remove UI element from the scene
+        /// </summary>
+        /// <param name="UI">The element to remove</param>
+        /// <returns>Returns false if element is not in the uielements array</returns>
         public virtual bool RemoveUIElement(Actor UI)
         {
             //Create a variable to store if the removal was successful
@@ -216,7 +232,7 @@ namespace MathForGames
             //If actor removed is successful set actors to temp array
             if (uiRemoved)
             {
-                _actors = tempArray;
+                _UIElements = tempArray;
             }
 
             return uiRemoved;

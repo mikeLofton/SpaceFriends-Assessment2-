@@ -22,10 +22,10 @@ namespace MathForGames
         public override void Update(float deltaTime)
         {
             if (EnemyCount <= 0)
-                _scene.AddActor(winText);
+                _scene.AddUIElement(winText);
 
             if (PlayerIsDead)
-                _scene.AddActor(loseText);
+                _scene.AddUIElement(loseText);
 
             base.Update(deltaTime);
         }

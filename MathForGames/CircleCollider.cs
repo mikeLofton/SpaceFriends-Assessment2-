@@ -56,11 +56,5 @@ namespace MathForGames
             //Return whether or not the distance is less than the circle's radius
             return distanceFromClosestPoint <= CollisionRadius;
         }
-
-        public override void Draw()
-        {
-            base.Draw();
-            Raylib.DrawCircleLines((int)Owner.WorldPosition.X, (int)Owner.WorldPosition.Y, CollisionRadius, Color.WHITE);
-        }
     }
 }
