@@ -68,7 +68,7 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime);
+            _scenes[_currentSceneIndex].Update(deltaTime);           
         }
 
         /// <summary>

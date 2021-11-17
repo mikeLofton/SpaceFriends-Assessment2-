@@ -73,12 +73,23 @@ namespace MathForGames
             }
         }
 
+        /// <summary>
+        /// AABB Constructpr
+        /// </summary>
+        /// <param name="width">The hitbox width</param>
+        /// <param name="height">The hitbox height</param>
+        /// <param name="owner">The hitbox owner</param>
         public AABBCollider(float width, float height, Actor owner) : base(owner, ColliderType.AABB)
         {
             _width = width;
             _height = height;
         }
 
+        /// <summary>
+        /// Checks for collision between 2 AABB Colliders
+        /// </summary>
+        /// <param name="other">The other actor's AABB collider</param>
+        /// <returns></returns>
         public override bool CheckCollisionAABB(AABBCollider other)
         {
             //Return false if this owner is checking for collision against itself
@@ -98,14 +109,14 @@ namespace MathForGames
             return false;
         }
 
+        /// <summary>
+        /// Checks for collison between AABB and Circle Collider
+        /// </summary>
+        /// <param name="other">The other actor's Circle collider</param>
+        /// <returns></returns>
         public override bool CheckCollisionCircle(CircleCollider other)
         {
             return other.CheckCollisionAABB(this);
-        }
-
-        public override void Draw()
-        {
-            Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.WHITE);
         }
     }
 }

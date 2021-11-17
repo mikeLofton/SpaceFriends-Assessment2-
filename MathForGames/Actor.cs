@@ -29,6 +29,9 @@ namespace MathForGames
             get { return _started; }
         }
 
+        /// <summary>
+        /// The position of the actor 
+        /// </summary>
         public Vector2 LocalPosition
         {
             get { return new Vector2(_translation.M02, _translation.M12); }
@@ -63,29 +66,44 @@ namespace MathForGames
             }
         }
 
+        /// <summary>
+        /// The Global Transform Matrix
+        /// </summary>
         public Matrix3 GlobalTransform
         {
             get { return _globalTransform; } 
             private set { _globalTransform = value; }
         }
 
+        /// <summary>
+        /// The local Transform Matrix
+        /// </summary>
         public Matrix3 LocalTransform
         {
             get { return _localTransform; }
             private set { _localTransform = value; }
         }
 
+        /// <summary>
+        /// The parent actor
+        /// </summary>
         public Actor Parent
         {
             get {return _parent; }
             set { _parent = value; }
         }
 
+        /// <summary>
+        /// The array of children
+        /// </summary>
         public Actor[] Children
         {
             get { return _children; }
         }
 
+        /// <summary>
+        /// The size vector
+        /// </summary>
         public Vector2 Size
         {
             get
@@ -98,6 +116,9 @@ namespace MathForGames
             set { SetScale(value.X, value.Y); }
         }
 
+        /// <summary>
+        /// The forward vector
+        /// </summary>
         public Vector2 Forward
         {
             get { return new Vector2(_rotation.M00, _rotation.M10); }
@@ -108,6 +129,9 @@ namespace MathForGames
             }
         }
 
+        /// <summary>
+        /// The sprite attached to the actor
+        /// </summary>
         public Sprite Sprite
         {
             get { return _sprite; }
@@ -123,9 +147,22 @@ namespace MathForGames
             set { _collider = value; }
         }
 
+        /// <summary>
+        /// Actor Constructor
+        /// </summary>
+        /// <param name="x">The actor's x positon</param>
+        /// <param name="y">The actor's y position</param>
+        /// <param name="name">The actor's name</param>
+        /// <param name="path">The actor's sprite</param>
         public Actor(float x, float y, string name = "Actor", string path = "") : 
             this(new Vector2 { X = x, Y = y}, name, path) {}
 
+        /// <summary>
+        /// Actor Constructor
+        /// </summary>
+        /// <param name="position">The actor's position</param>
+        /// <param name="name">The actor's name</param>
+        /// <param name="path">The actor's sprite</param>
         public Actor(Vector2 position, string name = "Actor", string path = "")
         {
             LocalPosition = position;
@@ -135,6 +172,9 @@ namespace MathForGames
                 _sprite = new Sprite(path);
         }
 
+        /// <summary>
+        /// Update the global and local transforms everytime the game loops
+        /// </summary>
         public void UpdateTransforms()
         {
             _localTransform = _translation * _rotation * _scale;
