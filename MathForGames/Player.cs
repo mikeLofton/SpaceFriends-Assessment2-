@@ -73,6 +73,18 @@ namespace MathForGames
             int yBulletDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
 
+            //The scale buttons
+            int scalePlayer = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_1))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_2));
+
+            //Scales the player up is the 2 key is pressed 
+            if (scalePlayer > 0)
+                this.Scale(1.5f, 1.5f);
+            
+            //Scales the player down if the 1 key is pressed
+            if (scalePlayer < 0)
+                this.Scale(0.8f, 0.8f);
+
             //Bullet's Values
             Bullet bullet = new Bullet(LocalPosition.X, LocalPosition.Y, 150, xBulletDirection, yBulletDirection, _scene, "Bullet", "Images/strawberry.png");
             bullet.SetScale(25, 25);
@@ -113,8 +125,10 @@ namespace MathForGames
         public override void OnCollision(Actor actor)
         {
             if (actor is Enemy)
-                Engine.CloseApplication();
-                
+            {
+                _scene.RemoveActor(this);
+                GameManager.PlayerIsDead = true;
+            }                              
         }
 
         public override void Draw()

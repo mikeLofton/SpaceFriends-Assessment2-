@@ -68,7 +68,7 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime);   
+            _scenes[_currentSceneIndex].Update(deltaTime);
         }
 
         /// <summary>
@@ -227,7 +227,9 @@ namespace MathForGames
             CircleCollider enemy8CircleCollider = new CircleCollider(45, enemy8);
             enemy8.Collider = enemy8CircleCollider;
 
-            UIText winText = new UIText(800, 450, "WinText", Color.WHITE, 300, 300, 40, "YOU WIN!");
+            GameManager gameManager = new GameManager(1, 1, scene);
+            GameManager.EnemyCount = 8;
+            GameManager.PlayerIsDead = false;
 
             //Add all children to player
             player.AddChild(baby1);
@@ -252,6 +254,9 @@ namespace MathForGames
             scene.AddActor(baby7);
             scene.AddActor(baby8);
 
+            //Add the game manager
+            scene.AddActor(gameManager);
+
             //Add sharks to scene
             scene.AddActor(enemy1);
             scene.AddActor(enemy3);
@@ -263,8 +268,6 @@ namespace MathForGames
             scene.AddActor(enemy4);
             scene.AddActor(enemy6);
             scene.AddActor(enemy8);
-
-            
 
             _currentSceneIndex = AddScene(scene);
 

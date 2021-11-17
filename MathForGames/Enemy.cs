@@ -12,7 +12,7 @@ namespace MathForGames
         private Vector2 _velocity;
         private float _enemyType;
         private Actor _target;
-        private Scene _scene;
+        private Scene _scene;      
 
         public float Speed
         {
@@ -48,7 +48,7 @@ namespace MathForGames
 
             distance = Vector2.Distance(_target.WorldPosition, WorldPosition);
 
-            if ( distance < 800)
+            if ( distance < 900)
                 LocalPosition += Velocity * deltaTime;
 
             if (_enemyType == 1)

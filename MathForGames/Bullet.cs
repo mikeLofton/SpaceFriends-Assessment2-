@@ -58,7 +58,10 @@ namespace MathForGames
         public override void OnCollision(Actor actor)
         {
             if (actor is Enemy)
+            {
                 _scene.RemoveActor(actor);
+                GameManager.EnemyCount--;
+            }             
         }
 
         public override void Draw()
