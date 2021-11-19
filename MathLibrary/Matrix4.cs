@@ -68,6 +68,11 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Creates a new matrix that has been rotated on the y-axis by the given value in radians
+        /// </summary>
+        /// <param name="radians">The radians to rotate by</param>
+        /// <returns></returns>
         public static Matrix4 CreateRotationY(float radians)
         {
             return new Matrix4
@@ -79,6 +84,11 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Creates a new matrix that has been rotated on the y-axis by the given value in radians
+        /// </summary>
+        /// <param name="radians">The radians to rotate by</param>
+        /// <returns></returns>
         public static Matrix4 CreateRotationX(float radians)
         {
             return new Matrix4
@@ -90,6 +100,13 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Creates a new matrix that has been translated by the given value
+        /// </summary>
+        ///<param name="x">The x position of the new matrix</param>
+        ///<param name="y">The y position of the new matrix</param>
+        ///<param name="z">The z position of the new matrix</param>
+        /// <returns></returns>
         public static Matrix4 CreateTranslation(float x, float y, float z)
         {
             return new Matrix4
@@ -101,6 +118,13 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Creates a new matrix that has been scaled by the given value
+        /// </summary>
+        /// <param name="x">The value to use to scale the matrix in the x axis</param>
+        /// <param name="y">The value to use to scale the matrix in the y axis</param>
+        /// <param name="z">The value to use to scale the matrix in the z axis</param>
+        /// <returns>The result of the scale</returns>
         public static Matrix4 CreateScale(float x, float y, float z)
         {
             return new Matrix4
@@ -112,6 +136,12 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Overload for matrix4 addition
+        /// </summary>
+        /// <param name="lhs">The first matrix</param>
+        /// <param name="rhs">The second matrix</param>
+        /// <returns>New matrix with the added values</returns>
         public static Matrix4 operator +(Matrix4 lhs, Matrix4 rhs)
         {
             return new Matrix4
@@ -123,6 +153,12 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Overload for matrix4 subtraction
+        /// </summary>
+        /// <param name="lhs">The first matrix</param>
+        /// <param name="rhs">The second matrix</param>
+        /// <returns>New matrix with the subtracted values</returns>
         public static Matrix4 operator -(Matrix4 lhs, Matrix4 rhs)
         {
             return new Matrix4
@@ -134,6 +170,12 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Overload for matrix4 multiplication
+        /// </summary>
+        /// <param name="lhs">The first matrix</param>
+        /// <param name="rhs">The second matrix</param>
+        /// <returns>New matrix with the multiplied values</returns>
         public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
         {
             Matrix4 result = new Matrix4();
@@ -177,6 +219,12 @@ namespace MathLibrary
             return result;
         }
 
+        /// <summary>
+        /// Overload for multiplying a matrix4 with a vector4
+        /// </summary>
+        /// <param name="lhs">The given matrix</param>
+        /// <param name="rhs">The given vector</param>
+        /// <returns>New vector with the multiplied values</returns>
         public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
         {
             return new Vector4

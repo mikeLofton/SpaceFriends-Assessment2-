@@ -11,11 +11,17 @@ namespace MathLibrary
         public float Z;
         public float W;
 
+        /// <summary>
+        /// Gets the length of the vector
+        /// </summary>
         public float Magnitude
         {
             get { return (float)Math.Sqrt(X * X + Y * Y + Z * Z + W * W); }
         }
 
+        /// <summary>
+        /// Gets the normalized version of this vector without changing it
+        /// </summary>
         public Vector4 Normalized
         {
             get
@@ -25,6 +31,10 @@ namespace MathLibrary
             }
         }
 
+        /// <param name="x">x value</param>
+        /// <param name="y">y value</param>
+        /// <param name="z">z value</param>
+        /// <param name="w">w value</param>
         public Vector4(float x, float y, float z, float w)
         {
             X = x;
@@ -33,6 +43,10 @@ namespace MathLibrary
             W = w;
         }
 
+        /// <summary>
+        /// Changes this vector to have a magnitude that is equal to one
+        /// </summary>
+        /// <returns>The result of the normalization. Returns an empty vector if the magnitude is zero</returns>
         public Vector4 Normalize()
         {
             if (Magnitude == 0)
@@ -41,11 +55,17 @@ namespace MathLibrary
             return this /= Magnitude;
         }
 
+        /// <param name="lhs">The left hand side of the operation</param>
+        /// <param name="rhs">The right hand side of the operation</param>
+        /// <returns>The dot product of the first vector on to the second</returns>
         public static float DotProduct(Vector4 lhs, Vector4 rhs)
         {
             return (lhs.X * rhs.X) + (lhs.Y * rhs.Y) + (lhs.Z * rhs.Z) + (lhs.W * rhs.W);
         }
 
+        /// <param name="lhs">The left hand side of the operation</param>
+        /// <param name="rhs">The right hand side of the operation</param>
+        /// <returns>The cross product of the two vectors</returns>
         public static Vector4 CrossProduct(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4
@@ -57,21 +77,45 @@ namespace MathLibrary
                 );
         }
 
+        /// <summary>
+        /// Finds the distance from the first vector to the second
+        /// </summary>
+        /// <param name="lhs">The starting point</param>
+        /// <param name="rhs">The ending point</param>
+        /// <returns>A scalar representing the distance</returns>
         public static float Distance(Vector4 lhs, Vector4 rhs)
         {
             return (rhs - lhs).Magnitude;
         }
 
+        /// <summary>
+        /// Subtracts the x, y, z, and w value of the second vector to the values of the first
+        /// </summary>
+        /// <param name="lhs">The vector that is being subtracted from</param>
+        /// <param name="rhs">The vector used to subtract from the 1st vector</param>
+        /// <returns>The result of the vector subtraction</returns>
         public static Vector4 operator -(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4 { X = lhs.X - rhs.X, Y = lhs.Y - rhs.Y, Z = lhs.Z - rhs.Z, W = lhs.W - rhs.W };
         }
 
+        /// <summary>
+        /// Adds the x, y, z, and w value of the second vector to the values of the first
+        /// </summary>
+        /// <param name="lhs">The vector that is increasing</param>
+        /// <param name="rhs">The vector being added the 1st vector</param>
+        /// <returns>The result of the vector addition</returns>
         public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4 { X = lhs.X + rhs.X, Y = lhs.Y + rhs.Y, Z = lhs.Z + rhs.Z, W = lhs.W + rhs.W };
         }
 
+        /// <summary>
+        /// Multiplies the vectors x, y, z, and w values by the scalar
+        /// </summary>
+        /// <param name="lhs">The vector that is being scaled</param>
+        /// <param name="rhs">The value to scale the vector by</param>
+        /// <returns>The result of the vector scaling</returns>
         public static Vector4 operator *(Vector4 lhs, float rhs)
         {
             Vector4 result = new Vector4();
@@ -84,6 +128,12 @@ namespace MathLibrary
             return result;
         }
 
+        /// <summary>
+        /// Multiplies the vectors x, y, z, and w values by the scalar
+        /// </summary>
+        /// <param name="lhs">The value to scale the vector by</param>
+        /// <param name="rhs">The vector that is being scaled</param>
+        /// <returns>The result of the vector scaling</returns>
         public static Vector4 operator *(float lhs, Vector4 rhs)
         {
             Vector4 result = new Vector4();
@@ -96,7 +146,12 @@ namespace MathLibrary
             return result;
         }
 
-
+        /// <summary>
+        /// Divides the vector's x, y, z, and w values by the scalar given
+        /// </summary>
+        /// <param name="lhs">The vector that is being scaled</param>
+        /// <param name="rhs">The value to scale the vector by</param>
+        /// <returns>The result of the vector scaling</returns>
         public static Vector4 operator /(Vector4 lhs, float rhs)
         {
             Vector4 result = new Vector4();
@@ -109,6 +164,12 @@ namespace MathLibrary
             return result;
         }
 
+        /// <summary>
+        /// Compares the x, y, z, and w values of two vectors
+        /// </summary>
+        /// <param name="lhs">The left side of the comparison</param>
+        /// <param name="rhs">The right side of the comparison</param>
+        /// <returns>True if the x, y, z and w values of both vectors match</returns>
         public static bool operator ==(Vector4 lhs, Vector4 rhs)
         {
             if (lhs.X == rhs.X && lhs.Y == rhs.Y && lhs.Z == rhs.Z && lhs.W == rhs.W)
@@ -119,6 +180,12 @@ namespace MathLibrary
             return false;
         }
 
+        /// <summary>
+        /// Compares the x, y, z, and w values of two vectors
+        /// </summary>
+        /// <param name="lhs">The left side of the comparison</param>
+        /// <param name="rhs">The right side of the comparison</param>
+        /// <returns>True if the x, y, z, or w values of both vectors don't match</returns>
         public static bool operator !=(Vector4 lhs, Vector4 rhs)
         {
             if (lhs.X != rhs.X || lhs.Y != rhs.Y || lhs.Z != rhs.Z || lhs.W != rhs.W)

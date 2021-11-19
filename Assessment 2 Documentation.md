@@ -597,7 +597,7 @@ SpaceFriends-Assessment2-
             * Description: Vector2 Constructor. Takes in an X and Y value.
             * Visibility: public 
         * Name: Magnitude(float)
-            * Description: Gets the lenght of the vector.
+            * Description: Gets the length of the vector.
             * Visibility: public
         * Name: Normalized(Vector2) 
             * Description: Gets the normalized version of this vector without changing it.
@@ -605,6 +605,7 @@ SpaceFriends-Assessment2-
         * Name: Normalize()
             * Description: Changes this vector to have a magnitude that is equal to one. Returns the result of the normalization.
             * Visibility: public
+            * Type: Vector2
         * Name: DotProduct(Vector2 lhs, Vector2 rhs)
             * Description: Returns the dot product of the first vector on to the second.
             * Visibility: public
@@ -643,7 +644,7 @@ SpaceFriends-Assessment2-
             * Description: Takes in the rows and columns of the matrix3.
             * Visibility: public
         * Name: Identity(static Matrix3)
-            * Description: Creates ans Identity Matrix3.
+            * Description: Creates an Identity Matrix3.
             * Visibility: public
         * Name: CreateRotation(float radians)
             * Description: Creates a new matrix that has been rotated by the given value in radians.
@@ -676,4 +677,4 @@ SpaceFriends-Assessment2-
          * Name: *(Matrix3 lhs, Vector3 rhs)
             * Description: Overload for multiplying a matrix3 with a vector3.
             * Visibility: public
-            * Type: static Matrix3 operator
+            * Type: static Vector3 operator
