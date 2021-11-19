@@ -36,6 +36,9 @@ namespace MathForGames
             FontColor = color;
         }
 
+        /// <summary>
+        /// Draws the textbox
+        /// </summary>
         public override void Draw()
         {
             //Create a new rectangle that will act as the borders of the text box

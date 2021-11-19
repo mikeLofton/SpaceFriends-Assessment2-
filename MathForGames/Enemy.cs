@@ -14,18 +14,32 @@ namespace MathForGames
         private Actor _target;
         private Scene _scene;      
 
+        /// <summary>
+        /// The enemy's speed
+        /// </summary>
         public float Speed
         {
             get { return _speed; }
             set { _speed = value; }
         }
 
+        /// <summary>
+        /// The player's velocity
+        /// </summary>
         public Vector2 Velocity
         {
             get { return _velocity; }
             set { _velocity = value; }
         }
 
+        /// <param name="x">The x position in the world</param>
+        /// <param name="y">The y position in the world</param>
+        /// <param name="speed">The enemy's speed</param>
+        /// <param name="type">The enemy's type</param>
+        /// <param name="target">The enemy's target</param>
+        /// <param name="currentScene">The enemy's current scene</param>
+        /// <param name="name">The enemy's name</param>
+        /// <param name="path">The enemy's sprite</param>
         public Enemy(float x, float y, float speed, float type, Actor target, Scene currentScene, string name = "Actor", string path = "") :
             base(x, y, name, path)
         {
@@ -35,6 +49,10 @@ namespace MathForGames
             _scene = currentScene;
         }
 
+        /// <summary>
+        /// Called everytime the game loops
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
             Vector2 direction = new Vector2();
@@ -60,23 +78,26 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        /// <summary>
+        /// Collision between enemy and another actor
+        /// </summary>
+        /// <param name="actor"></param>
         public override void OnCollision(Actor actor)
         {
+            //if the actor is a baby...
             if (actor is Baby)
+                //Remove the baby from the scene
                 _scene.RemoveActor(actor);
 
             Console.WriteLine("Collision Occored");
         }
 
+        /// <summary>
+        /// Draws the enemy sprites
+        /// </summary>
         public override void Draw()
         {
             base.Draw();
-            Collider.Draw();
-        }
-
-        public override void End()
-        {
-            base.End();
         }
     }
 }

@@ -10,17 +10,27 @@ namespace MathForGames
     {
         private float _collisionRadius;
 
+        /// <summary>
+        /// The collider's collision radius
+        /// </summary>
         public float CollisionRadius
         {
             get { return _collisionRadius; }
             set { _collisionRadius = value; }
         }
 
+        /// <param name="collisionRadius">The collider's collision radius</param>
+        /// <param name="owner">The collider's owner</param>
         public CircleCollider(float collisionRadius, Actor owner) : base(owner, ColliderType.CIRCLE)
         {
             _collisionRadius = collisionRadius;
         }
 
+        /// <summary>
+        /// Checks for collision with another circle collider.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public override bool CheckCollisionCircle(CircleCollider other)
         {
             if (other.Owner == Owner)
@@ -34,6 +44,11 @@ namespace MathForGames
             return distance <= combinedRadii;
         }
 
+        /// <summary>
+        /// Checks for collision with other's AABB collider.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public override bool CheckCollisionAABB(AABBCollider other)
         {
             //Return false if this collider is checking collision against itself

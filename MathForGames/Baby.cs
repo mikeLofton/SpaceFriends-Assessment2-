@@ -8,15 +8,26 @@ namespace MathForGames
     class Baby : Actor
     {
         private Scene _scene;
+        //How long the player has to wait (in seconds) before firing a bullet again
         private float _cooldownTime = 1;
+        //How much time has passed since the last time the player fired a bullet
         private float _sinceLastShot = 0;
 
+        /// <param name="x">The x position in the world</param>
+        /// <param name="y">The y position in the world</param>
+        /// <param name="currentScene">The current scene</param>
+        /// <param name="name">The baby's name</param>
+        /// <param name="path">The baby's sprite path</param>
         public Baby(float x, float y, Scene currentScene, string name = "Actor", string path = "") :
            base(x, y, name, path)
         {
             _scene = currentScene;
         }
 
+        /// <summary>
+        /// Called everytime the game loops
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
             _sinceLastShot += deltaTime;
@@ -45,15 +56,20 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        /// <summary>
+        /// Collision between Baby and another actor
+        /// </summary>
+        /// <param name="actor"></param>
         public override void OnCollision(Actor actor)
-        {
-            
+        {         
         }
 
+        /// <summary>
+        /// Draws the baby sprite
+        /// </summary>
         public override void Draw()
         {
             base.Draw();
-            Collider.Draw();
         }
     }
 }

@@ -73,9 +73,6 @@ namespace MathForGames
             }
         }
 
-        /// <summary>
-        /// AABB Constructpr
-        /// </summary>
         /// <param name="width">The hitbox width</param>
         /// <param name="height">The hitbox height</param>
         /// <param name="owner">The hitbox owner</param>

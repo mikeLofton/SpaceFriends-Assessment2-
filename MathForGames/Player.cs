@@ -13,7 +13,7 @@ namespace MathForGames
         private Scene _scene;
         //How long the player has to wait (in seconds) before firing a bullet again
         private float _cooldownTime = 1;
-        //How much time has passed since since the last time the player fired a bullet
+        //How much time has passed since the last time the player fired a bullet
         private float _sinceLastShot = 0;      
 
         /// <summary>
@@ -34,9 +34,6 @@ namespace MathForGames
             set { _velocity = value; }
         }
 
-        /// <summary>
-        /// The Player Constructor
-        /// </summary>
         /// <param name="x">The player's x position in the world</param>
         /// <param name="y">The player's y position in the world</param>
         /// <param name="speed">The player's movement speed</param>
@@ -122,19 +119,28 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        /// <summary>
+        /// Collision between player and another actor
+        /// </summary>
+        /// <param name="actor">The other actor</param>
         public override void OnCollision(Actor actor)
         {
+            //If the other actor is an Enemy...
             if (actor is Enemy)
             {
+                //Romove the player from the scene
                 _scene.RemoveActor(this);
+                //Set PlayerIsDead to true
                 GameManager.PlayerIsDead = true;
             }                              
         }
 
+        /// <summary>
+        /// Draws the actors
+        /// </summary>
         public override void Draw()
         {
             base.Draw();
-            Collider.Draw();
         }
     }
 }

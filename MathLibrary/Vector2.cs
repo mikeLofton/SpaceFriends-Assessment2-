@@ -7,7 +7,8 @@ namespace MathLibrary
         public float X;
         public float Y;
 
-
+        /// <param name="x">x value</param>
+        /// <param name="y">y value</param>
         public Vector2(float x, float y)
         {
             X = x;
@@ -80,7 +81,7 @@ namespace MathLibrary
         }
 
         /// <summary>
-        /// Adds the x value of the second vector to the first, and subtracts the y value of the second vector to the first
+        /// Subtracts the x value of the second vector to the first, and subtracts the y value of the second vector to the first
         /// </summary>
         /// <param name="lhs">The vector that is being subtracted from</param>
         /// <param name="rhs">The vector used to subtract from the 1st vector</param>
@@ -127,7 +128,7 @@ namespace MathLibrary
         /// </summary>
         /// <param name="lhs">The left side of the comparison</param>
         /// <param name="rhs">The right side of the comparison</param>
-        /// <returns>True if the x values of both vectors</returns>
+        /// <returns>True if the x and y values of both vectors match</returns>
         public static bool operator ==(Vector2 lhs, Vector2 rhs)
         {          
             if ( lhs.X == rhs.X && lhs.Y == rhs.Y)
