@@ -27,6 +27,7 @@ SpaceFriends-Assessment2-
     * The four Arrow Keys - shoots a bullet in the corresponding direction.
     * Numpad 1 - decreases the player's size.
     * Numpad 2 - increases the player's size.
+    * ESC Key - closes game
  3. **Output Information:**
     * The game will affect sprites and movements based on the player's input.
  4. **User Interface Information:**
