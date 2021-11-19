@@ -14,15 +14,21 @@ MathLibrary
 
     **Problem Statement:** 
     
-  
+    Submit executable for Graphical Test Application that makes use of your maths classes to implement the following.
 
- 2. **Input Information:**
+    **Problem Specifications:**
     
- 3. **Output Information:**
+    * Example of matrix hierarchy to manipulate visible elements.
+    * Example of game objects moving using velocity and acceleration with vectors.
+    * Example of simple collision detection.  
     
 # II. Design
  1. *System Architecture*
- vwgrg
+    * Vector2 contains the math and fuctions for movement in a 2D space.
+    * Vector3 contains the math and fuctions for movment in a 3D space.
+    * Vector4 can be used for different purposes. In this MathLibrary it is used for colors.
+    * Matrix3 contains the math and funtions for 2D transforms.
+    * Matrix4 contains the mathand functions for 3D transforms.
     
  2. *Object Information*
     * **File Name:** Vector2.cs
