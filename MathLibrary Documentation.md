@@ -13,7 +13,7 @@ MathLibrary
     **Name:** MathLibrary
 
     **Problem Statement:** 
-  
+    
   
 
  2. **Input Information:**
@@ -22,7 +22,7 @@ MathLibrary
     
 # II. Design
  1. *System Architecture*
- 
+ vwgrg
     
  2. *Object Information*
     * **File Name:** Vector2.cs
