@@ -78,7 +78,7 @@ namespace MathLibrary
 
         /// <param name="lhs">The left hand side of the operation</param>
         /// <param name="rhs">The right hand side of the operation</param>
-        /// <returns>The cross product of the two vectors</returns>
+        /// <returns>A new vector thats perendicular to the lhs and rhs vectors</returns>
         public static Vector3 CrossProduct(Vector3 lhs, Vector3 rhs)
         {
             return new Vector3

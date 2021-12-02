@@ -118,7 +118,7 @@ MathLibrary
             * Visibility: public
             * Type: static float 
         * Name: CrossProduct(Vector3 lhs, Vector3 rhs)
-            * Description: Returns the cross product of the two vectors.
+            * Description: Returns a new vector thats perendicular to the lhs and rhs vectors.
             * Visibility: public
             * Type: static Vector3   
         * Name: Distance(Vector3 lhs, Vector3 rhs)
@@ -185,7 +185,7 @@ MathLibrary
             * Visibility: public
             * Type: static float 
         * Name: CrossProduct(Vector4 lhs, Vector4 rhs)
-            * Description: Returns the cross product of the two vectors.
+            * Description: Returns a new vector thats perendicular to the lhs and rhs vectors
             * Visibility: public
             * Type: static Vector4   
         * Name: Distance(Vector4 lhs, Vector4 rhs)

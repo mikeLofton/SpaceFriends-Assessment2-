@@ -35,14 +35,14 @@ namespace MathForGames
             set { _velocity = value; }
         }
 
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="speed"></param>
-        /// <param name="bulletXDirection"></param>
-        /// <param name="bulletYDirection"></param>
-        /// <param name="currentScene"></param>
-        /// <param name="name"></param>
-        /// <param name="path"></param>
+        /// <param name="x">The bullet's starting x position</param>
+        /// <param name="y">The bullet's starting y position</param>
+        /// <param name="speed">The bullet's movement speed</param>
+        /// <param name="bulletXDirection">The bullet's movement direction on the x axis</param>
+        /// <param name="bulletYDirection">The bullet's movement direction on the y axis</param>
+        /// <param name="currentScene">The scene the bullet's currently in</param>
+        /// <param name="name">The bullrt's name</param>
+        /// <param name="path">The bullet's sprite path</param>
         public Bullet(float x, float y, float speed, int bulletXDirection, int bulletYDirection, Scene currentScene, string name = "Bullet", string path = "") :
             base(x, y, name, path)
         {
