@@ -89,7 +89,7 @@ namespace MathForGames
                 //Remove the baby from the scene
                 _scene.RemoveActor(actor);
 
-            Console.WriteLine("Collision Occored");
+            Console.WriteLine("Collision Occurred");
         }
 
         /// <summary>
